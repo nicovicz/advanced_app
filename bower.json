@@ -1,0 +1,22 @@
+{
+  "name": "advanced_app",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.5.0",
+    "Ionicons": "ionicons#~2.0.1",
+    "respond": "~1.4.2",
+    "html5shiv": "~3.7.3"
+  }
+}
