@@ -35,8 +35,7 @@ class ApiController extends BackController
 		Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 		$q = Yii::$app->request->get('q');
 		
-        $roles = AuthItem::find()->where(['LIKE', 'name', $q])
-			->andWhere(['type'=>1])->all();
+        $roles = new (\yii\db\Query())->from('t_sut')->where(['LIKE', 'sut_no', $q])->all();
         $data = [];
         
         if (!empty($roles)){

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.7
+-- version 4.4.13.1deb1
 -- http://www.phpmyadmin.net
 --
--- Inang: localhost:3306
--- Waktu pembuatan: 25 Des 2015 pada 00.28
--- Versi Server: 5.5.46-cll
--- Versi PHP: 5.4.31
+-- Host: localhost
+-- Generation Time: 02 Feb 2016 pada 10.04
+-- Versi Server: 10.0.22-MariaDB-0ubuntu0.15.10.1
+-- PHP Version: 5.6.16-2+deb.sury.org~wily+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,11 +14,234 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Basis data: `cahayatv_tvkabel`
+-- Database: `yii2advanced`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `auth_assignment`
+--
+
+CREATE TABLE IF NOT EXISTS `auth_assignment` (
+  `item_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `auth_assignment`
+--
+
+INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
+('operator', '10', 1451230918),
+('operator2', '10', 1451230918),
+('operator2', '11', 1451230946),
+('super_admin', '8', 1451183615),
+('user_maker', '8', 1451183615),
+('user_maker', '9', 1451182649);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `auth_item`
+--
+
+CREATE TABLE IF NOT EXISTS `auth_item` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `type` int(11) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `rule_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data` text COLLATE utf8_unicode_ci,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `auth_item`
+--
+
+INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
+('/api/kabupaten', 2, '', NULL, NULL, 1451231479, 1451231479),
+('/api/kecamatan', 2, '', NULL, NULL, 1451231492, 1451231492),
+('/api/kelurahan', 2, '', NULL, NULL, 1451231499, 1451231499),
+('/api/permission', 2, NULL, NULL, NULL, 1451181555, 1451181555),
+('/api/role', 2, NULL, NULL, NULL, 1451181555, 1451181555),
+('/assignment/create', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/assignment/delete', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/assignment/index', 2, NULL, NULL, NULL, 1451181555, 1451181555),
+('/assignment/update', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/company/create', 2, '', NULL, NULL, 1451230626, 1451230626),
+('/company/delete', 2, '', NULL, NULL, 1451230642, 1451230642),
+('/company/index', 2, '', NULL, NULL, 1451230617, 1451230617),
+('/company/update', 2, '', NULL, NULL, 1451230635, 1451230635),
+('/company/view', 2, '', NULL, NULL, 1451230652, 1451230652),
+('/default/action', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/default/diff', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/default/index', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/default/preview', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/default/view', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/kabupaten/create', 2, '', NULL, NULL, 1451183752, 1451183752),
+('/kabupaten/delete', 2, '', NULL, NULL, 1451184013, 1451184013),
+('/kabupaten/index', 2, '', NULL, NULL, 1451183745, 1451183745),
+('/kabupaten/update', 2, '', NULL, NULL, 1451184003, 1451184003),
+('/kecamatan/create', 2, '', NULL, NULL, 1451184104, 1451184104),
+('/kecamatan/delete', 2, '', NULL, NULL, 1451184123, 1451184123),
+('/kecamatan/index', 2, '', NULL, NULL, 1451184077, 1451184077),
+('/kecamatan/update', 2, '', NULL, NULL, 1451184114, 1451184114),
+('/kelurahan/create', 2, '', NULL, NULL, 1451230428, 1451230428),
+('/kelurahan/delete', 2, '', NULL, NULL, 1451230448, 1451230448),
+('/kelurahan/index', 2, '', NULL, NULL, 1451230418, 1451230418),
+('/kelurahan/update', 2, '', NULL, NULL, 1451230439, 1451230439),
+('/permission/create', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/permission/delete', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/permission/index', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/permission/update', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/provinsi/create', 2, '', NULL, NULL, 1451182713, 1451182713),
+('/provinsi/delete', 2, '', NULL, NULL, 1451182695, 1451182695),
+('/provinsi/index', 2, '', NULL, NULL, 1451182673, 1451182673),
+('/provinsi/update', 2, '', NULL, NULL, 1451182683, 1451182683),
+('/role/create', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/role/delete', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/role/index', 2, NULL, NULL, NULL, 1451181556, 1451181556),
+('/role/update', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/route/create', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/route/delete', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/route/index', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/route/register', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/route/update', 2, NULL, NULL, NULL, 1451181557, 1451181557),
+('/site/index', 2, NULL, NULL, NULL, 1451137838, 1451137838),
+('/site/login', 2, NULL, NULL, NULL, 1451137839, 1451137839),
+('/site/logout', 2, NULL, NULL, NULL, 1451137839, 1451137839),
+('api_access', 1, '', NULL, NULL, 1451231632, 1451231632),
+('api_front_permission', 2, '', NULL, NULL, 1451231523, 1451231523),
+('api_permission', 2, '', NULL, NULL, 1451181597, 1451181597),
+('assignment_permission', 2, '', NULL, NULL, 1451182349, 1451182349),
+('company_permission', 2, '', NULL, NULL, 1451230856, 1451230856),
+('kabupaten_permission', 2, '', NULL, NULL, 1451230513, 1451230513),
+('kecamatan_permission', 2, '', NULL, NULL, 1451230573, 1451230573),
+('kelurahan_permission', 2, '', NULL, NULL, 1451230762, 1451230762),
+('operator', 1, '', NULL, NULL, 1451184329, 1451231642),
+('operator2', 1, '', NULL, NULL, 1451230903, 1451231651),
+('permission_permission', 2, '', NULL, NULL, 1451181864, 1451181864),
+('provinsi_permission', 2, '', NULL, NULL, 1451184257, 1451184257),
+('role_permission', 2, '', NULL, NULL, 1451182169, 1451182169),
+('route_permission', 2, '', NULL, NULL, 1451181739, 1451181739),
+('super_admin', 1, '', NULL, NULL, 1451182430, 1451183637),
+('user_maker', 1, '', NULL, NULL, 1451182495, 1451182495);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `auth_item_child`
+--
+
+CREATE TABLE IF NOT EXISTS `auth_item_child` (
+  `parent` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `auth_item_child`
+--
+
+INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
+('api_access', 'api_front_permission'),
+('api_front_permission', '/api/kabupaten'),
+('api_front_permission', '/api/kecamatan'),
+('api_front_permission', '/api/kelurahan'),
+('api_permission', '/api/permission'),
+('api_permission', '/api/role'),
+('assignment_permission', '/assignment/create'),
+('assignment_permission', '/assignment/delete'),
+('assignment_permission', '/assignment/index'),
+('assignment_permission', '/assignment/update'),
+('company_permission', '/company/create'),
+('company_permission', '/company/delete'),
+('company_permission', '/company/index'),
+('company_permission', '/company/update'),
+('company_permission', '/company/view'),
+('kabupaten_permission', '/kabupaten/create'),
+('kabupaten_permission', '/kabupaten/delete'),
+('kabupaten_permission', '/kabupaten/index'),
+('kabupaten_permission', '/kabupaten/update'),
+('kecamatan_permission', '/kecamatan/create'),
+('kecamatan_permission', '/kecamatan/delete'),
+('kecamatan_permission', '/kecamatan/index'),
+('kecamatan_permission', '/kecamatan/update'),
+('kelurahan_permission', '/kelurahan/create'),
+('kelurahan_permission', '/kelurahan/delete'),
+('kelurahan_permission', '/kelurahan/index'),
+('kelurahan_permission', '/kelurahan/update'),
+('operator', 'api_access'),
+('operator', 'kabupaten_permission'),
+('operator', 'kecamatan_permission'),
+('operator', 'kelurahan_permission'),
+('operator', 'provinsi_permission'),
+('operator2', 'api_access'),
+('operator2', 'company_permission'),
+('permission_permission', '/permission/create'),
+('permission_permission', '/permission/delete'),
+('permission_permission', '/permission/index'),
+('permission_permission', '/permission/update'),
+('provinsi_permission', '/provinsi/create'),
+('provinsi_permission', '/provinsi/delete'),
+('provinsi_permission', '/provinsi/index'),
+('provinsi_permission', '/provinsi/update'),
+('role_permission', '/role/create'),
+('role_permission', '/role/delete'),
+('role_permission', '/role/index'),
+('role_permission', '/role/update'),
+('route_permission', '/route/create'),
+('route_permission', '/route/delete'),
+('route_permission', '/route/index'),
+('route_permission', '/route/register'),
+('route_permission', '/route/update'),
+('super_admin', 'api_permission'),
+('super_admin', 'permission_permission'),
+('super_admin', 'role_permission'),
+('super_admin', 'route_permission'),
+('user_maker', 'assignment_permission');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `auth_rule`
+--
+
+CREATE TABLE IF NOT EXISTS `auth_rule` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `data` text COLLATE utf8_unicode_ci,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `company`
+--
+
+CREATE TABLE IF NOT EXISTS `company` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_kel` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `company`
+--
+
+INSERT INTO `company` (`id`, `name`, `address`, `email`, `phone`, `id_kel`) VALUES
+(2, 'PT Sample', 'qqeq11111', '1111@gmail.com', '123123213', '5102011002'),
+(3, 'PT ABC', 'Tangerang', 'abc@mail.com', '12242525', '5101020003'),
+(4, 'PT 123', 'Jakarta', '123@mail.com', '1234567', '3171040001');
 
 -- --------------------------------------------------------
 
@@ -29,15 +252,14 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `kabupaten` (
   `id_kab` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `id_prov` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_kab`)
+  `nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `kabupaten`
 --
 
-REPLACE INTO `kabupaten` (`id_kab`, `id_prov`, `nama`) VALUES
+INSERT INTO `kabupaten` (`id_kab`, `id_prov`, `nama`) VALUES
 ('1101', '11', 'Kab. Simeulue'),
 ('1102', '11', 'Kab. Aceh Singkil'),
 ('1103', '11', 'Kab. Aceh Selatan'),
@@ -547,15 +769,14 @@ REPLACE INTO `kabupaten` (`id_kab`, `id_prov`, `nama`) VALUES
 CREATE TABLE IF NOT EXISTS `kecamatan` (
   `id_kec` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `id_kab` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
-  `nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_kec`)
+  `nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `kecamatan`
 --
 
-REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
+INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('1101010', '1101', ' Teupah Selatan'),
 ('1101020', '1101', ' Simeulue Timur'),
 ('1101021', '1101', ' Teupah Barat'),
@@ -1972,7 +2193,7 @@ REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('1674031', '1674', ' Lubuk Linggau Timur I'),
 ('1674032', '1674', ' Lubuk Linggau Timur Ii'),
 ('1674041', '1674', ' Lubuk Linggau Utara I');
-REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
+INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('1674042', '1674', ' Lubuk Linggau Utara Ii'),
 ('1701040', '1701', ' Manna'),
 ('1701041', '1701', ' Kota Manna'),
@@ -3466,7 +3687,7 @@ REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('3319020', '3319', ' Kota Kudus'),
 ('3319030', '3319', ' Jati'),
 ('3319040', '3319', ' Undaan');
-REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
+INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('3319050', '3319', ' Mejobo'),
 ('3319060', '3319', ' Jekulo'),
 ('3319070', '3319', ' Bae'),
@@ -5017,7 +5238,7 @@ REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('5316020', '5316', ' Umbu Ratu Nggay Barat'),
 ('5316030', '5316', ' Umbu Ratu Nggay'),
 ('5316040', '5316', ' Mamboro');
-REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
+INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('5317010', '5317', ' Kodi Bangedo'),
 ('5317011', '5317', ' Kodi Balaghar'),
 ('5317020', '5317', ' Kodi'),
@@ -6482,7 +6703,7 @@ REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('7408041', '7408', ' Watunohu'),
 ('7408050', '7408', ' Pakue'),
 ('7408051', '7408', ' Pakue Utara');
-REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
+INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 ('7408052', '7408', ' Pakue Tengah'),
 ('7408060', '7408', ' Batu Putih'),
 ('7408061', '7408', ' Porehu'),
@@ -7448,15 +7669,14 @@ REPLACE INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 CREATE TABLE IF NOT EXISTS `kelurahan` (
   `id_kel` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `id_kec` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
-  `nama` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_kel`)
+  `nama` varchar(40) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `kelurahan`
 --
 
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1101010001', '1101010', 'Latiung'),
 ('1101010002', '1101010', 'Labuhan Bajau'),
 ('1101010003', '1101010', 'Suak Lamatan'),
@@ -8691,7 +8911,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1105140038', '1105140', 'Keude Idi Cut'),
 ('1105140039', '1105140', 'Seuneubok Baroh'),
 ('1105140040', '1105140', 'Meunasah Blang');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1105140041', '1105140', 'Seuneubok Aceh'),
 ('1105140042', '1105140', 'Matang Geutou'),
 ('1105140043', '1105140', 'Matang Pineung'),
@@ -9949,7 +10169,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1108100055', '1108100', 'Kling Manyang'),
 ('1108100056', '1108100', 'Lampisang'),
 ('1108100057', '1108100', 'Lambaro Sibreh');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1108100058', '1108100', 'Weusiteh'),
 ('1108100059', '1108100', 'Aneuk Galong Titi'),
 ('1108100060', '1108100', 'Aneuk Galong Baro'),
@@ -11199,7 +11419,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1110070039', '1110070', 'Punjot'),
 ('1110070040', '1110070', 'Pulo Pineung Mns Ii'),
 ('1110070041', '1110070', 'Bugak Blang');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1110070042', '1110070', 'Pante Sukon'),
 ('1110070043', '1110070', 'Pante Paku'),
 ('1110070044', '1110070', 'Pante Ranub'),
@@ -12434,7 +12654,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1113010004', '1113010', 'Ulon Tanoh'),
 ('1113010005', '1113010', 'Rema'),
 ('1113010006', '1113010', 'Tampeng');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1113010007', '1113010', 'Beranang'),
 ('1113010008', '1113010', 'Kuta Ujung'),
 ('1113010014', '1113010', 'Cike'),
@@ -13683,7 +13903,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1171020013', '1171020', 'Neusu Jaya'),
 ('1171020014', '1171020', 'Peuniti'),
 ('1171020019', '1171020', 'Kampung Baru');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1171021001', '1171021', 'Landom'),
 ('1171021002', '1171021', 'Cot Mesjid'),
 ('1171021003', '1171021', 'Batoh'),
@@ -14918,7 +15138,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1205030012', '1205030', 'Horisan Ranggitgit'),
 ('1205030013', '1205030', 'Purba Dolok'),
 ('1205030014', '1205030', 'Batuarimo');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1205040001', '1205040', 'Pagaran Lambung I'),
 ('1205040002', '1205040', 'Sibalanga'),
 ('1205040003', '1205040', 'Pagaran Lambung Ii'),
@@ -16126,7 +16346,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1210051004', '1210051', 'Silalahi Iii'),
 ('1210051005', '1210051', 'Paropo I'),
 ('1210060001', '1210060', 'Lae Rambong');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1210060002', '1210060', 'Lae Ambat'),
 ('1210060003', '1210060', 'Lae Panginuman'),
 ('1210060004', '1210060', 'Sumbari'),
@@ -17369,7 +17589,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1214050004', '1214050', 'Bawootalua'),
 ('1214050005', '1214050', 'Tetezou'),
 ('1214050006', '1214050', 'Bawolato');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1214050007', '1214050', 'Siwalubanua'),
 ('1214050008', '1214050', 'Silimabanua'),
 ('1214050009', '1214050', 'Lahusa'),
@@ -18604,7 +18824,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1220070083', '1220070', 'Aek Suhat Jae'),
 ('1220070084', '1220070', 'Naga Saribu'),
 ('1220070085', '1220070', 'Hula Baringin');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1220070086', '1220070', 'Dolok Sanggul'),
 ('1220080001', '1220080', 'Kuala Simpang'),
 ('1220080002', '1220080', 'Simundol'),
@@ -19844,7 +20064,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1301012003', '1301012', 'Matobek'),
 ('1301013001', '1301013', 'Saumanganyak'),
 ('1301013002', '1301013', 'Silabu');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1301013003', '1301013', 'Betumonga'),
 ('1301021001', '1301021', 'Bosua'),
 ('1301021002', '1301021', 'Nem-nem Leleu'),
@@ -21045,7 +21265,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1401020007', '1401020', 'Sumber Datar'),
 ('1401020008', '1401020', 'Sungai Keranji'),
 ('1401020009', '1401020', 'Pasir Emas');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1401020010', '1401020', 'Sungai Sirih'),
 ('1401020011', '1401020', 'Kebun Lado'),
 ('1401020013', '1401020', 'Sungai Kuning'),
@@ -22270,7 +22490,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1407070015', '1407070', 'Muara Dilam'),
 ('1407070016', '1407070', 'Pasir Luhur'),
 ('1407071001', '1407071', 'Pagaran Tapah');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1407071002', '1407071', 'Kembang Damai'),
 ('1407071003', '1407071', 'Rimba Makmur'),
 ('1407071004', '1407071', 'Rimba Jaya'),
@@ -23497,7 +23717,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1505012003', '1505012', 'Trijaya'),
 ('1505012004', '1505012', 'Bukit Subur'),
 ('1505012005', '1505012', 'Adipura Kencana');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1505012006', '1505012', 'Bukit Jaya'),
 ('1505012007', '1505012', 'Tanjung Mulya'),
 ('1505012008', '1505012', 'Ujung Tanjung'),
@@ -24728,7 +24948,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1603010009', '1603010', 'Pagar Agung'),
 ('1603010010', '1603010', 'Perapau'),
 ('1603011001', '1603011', 'Segamit');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1603011002', '1603011', 'Cahaya Alam'),
 ('1603011003', '1603011', 'Tanjung Tiga'),
 ('1603011004', '1603011', 'Tanjung Agung'),
@@ -25978,7 +26198,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1607020021', '1607020', 'Rimba Asam'),
 ('1607021001', '1607021', 'Talang Ipuh'),
 ('1607021002', '1607021', 'Air Senggeris');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1607021003', '1607021', 'Lubuk Lancang'),
 ('1607021004', '1607021', 'Biyuku'),
 ('1607021005', '1607021', 'Rimba Terab'),
@@ -27212,7 +27432,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1671011003', '1671011', 'Karang Jaya'),
 ('1671011004', '1671011', 'Karang Anyar'),
 ('1671011005', '1671011', '36 Ilir');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1671020005', '1671020', '15 Ulu'),
 ('1671020008', '1671020', '1 Ulu'),
 ('1671020009', '1671020', 'Tuan Kentang'),
@@ -28457,7 +28677,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1706022013', '1706022', 'Brangan Mulya'),
 ('1706030012', '1706030', 'Teras Terunjam'),
 ('1706030013', '1706030', 'Setia Budi');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1706030014', '1706030', 'Pondok Kopi'),
 ('1706030015', '1706030', 'Tunggal Jaya'),
 ('1706030022', '1706030', 'Mekar Jaya'),
@@ -29717,7 +29937,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1804050002', '1804050', 'Gunung Pasir Jaya'),
 ('1804050003', '1804050', 'Gunung Sugih Besar'),
 ('1804050004', '1804050', 'Bauh Gunung Sari');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1804050005', '1804050', 'Brawijaya'),
 ('1804050006', '1804050', 'Sidorejo'),
 ('1804050007', '1804050', 'Pugung Raharjo'),
@@ -30945,9 +31165,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1809050002', '1809050', 'Cipadang'),
 ('1809050003', '1809050', 'Pampangan'),
 ('1809050004', '1809050', 'Waylayap'),
-('1809050005', '1809050', 'Sukadadi');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('1809050006', '1809050', 'Bogorejo'),
+('1809050005', '1809050', 'Sukadadi'),
+('1809050006', '1809050', 'Bogorejo');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('1809050007', '1809050', 'Sukaraja'),
 ('1809050008', '1809050', 'Gedung Tataan'),
 ('1809050009', '1809050', 'Kutoarjo'),
@@ -32221,9 +32441,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('2105070005', '2105070', 'Payalaman'),
 ('2105070008', '2105070', 'Putik'),
 ('2105070009', '2105070', 'Bayat'),
-('2105070010', '2105070', 'Piabung');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('2105070011', '2105070', 'Langir'),
+('2105070010', '2105070', 'Piabung'),
+('2105070011', '2105070', 'Langir');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('2105070012', '2105070', 'Candi'),
 ('2105070013', '2105070', 'Piasan'),
 ('2105070014', '2105070', 'Belibak'),
@@ -33508,9 +33728,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3203070011', '3203070', 'Sukaraja'),
 ('3203070012', '3203070', 'Kadupandak'),
 ('3203070013', '3203070', 'Talagasari'),
-('3203070014', '3203070', 'Neglasari');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3203070015', '3203070', 'Sukakerta'),
+('3203070014', '3203070', 'Neglasari'),
+('3203070015', '3203070', 'Sukakerta');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3203070016', '3203070', 'Sukaraharja'),
 ('3203070017', '3203070', 'Bojongkasih'),
 ('3203070018', '3203070', 'Sukasari'),
@@ -34816,9 +35036,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3206261004', '3206261', 'Dirgahayu'),
 ('3206261005', '3206261', 'Cibahayu'),
 ('3206261006', '3206261', 'Kadipaten'),
-('3206270007', '3206270', 'Cipacing');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3206270010', '3206270', 'Sukamaju'),
+('3206270007', '3206270', 'Cipacing'),
+('3206270010', '3206270', 'Sukamaju');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3206270011', '3206270', 'Pagersari'),
 ('3206270012', '3206270', 'Pagerageung'),
 ('3206270013', '3206270', 'Sukadana'),
@@ -36118,9 +36338,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3210130002', '3210130', 'Trajaya'),
 ('3210130003', '3210130', 'Tarikolot'),
 ('3210130004', '3210130', 'Sindanghaji'),
-('3210130005', '3210130', 'Enggalwangi');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3210130006', '3210130', 'Buniwangi'),
+('3210130005', '3210130', 'Enggalwangi'),
+('3210130006', '3210130', 'Buniwangi');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3210130007', '3210130', 'Palasah'),
 ('3210130008', '3210130', 'Pasir'),
 ('3210130009', '3210130', 'Waringin'),
@@ -37423,9 +37643,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3215082001', '3215082', 'Kiara'),
 ('3215082002', '3215082', 'Bayur Kidul'),
 ('3215082003', '3215082', 'Bayur Lor'),
-('3215082004', '3215082', 'Langensari');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3215082005', '3215082', 'Sukamulya'),
+('3215082004', '3215082', 'Langensari'),
+('3215082005', '3215082', 'Sukamulya');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3215082006', '3215082', 'Pasirukem'),
 ('3215082007', '3215082', 'Sukajaya'),
 ('3215082008', '3215082', 'Pasirjaya'),
@@ -38717,9 +38937,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3301140003', '3301140', 'Slarang'),
 ('3301140004', '3301140', 'Kesugihan Kidul'),
 ('3301140005', '3301140', 'Kesugihan'),
-('3301140006', '3301140', 'Kalisabuk');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3301140007', '3301140', 'Kuripan Kidul'),
+('3301140006', '3301140', 'Kalisabuk'),
+('3301140007', '3301140', 'Kuripan Kidul');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3301140008', '3301140', 'Kuripan'),
 ('3301140009', '3301140', 'Jangrana'),
 ('3301140010', '3301140', 'Planjan'),
@@ -40026,9 +40246,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3305150022', '3305150', 'Pekuwon'),
 ('3305150023', '3305150', 'Sidamukti'),
 ('3305160001', '3305160', 'Kamulyan'),
-('3305160002', '3305160', 'Sidomukti');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3305160003', '3305160', 'Tambaksari'),
+('3305160002', '3305160', 'Sidomukti'),
+('3305160003', '3305160', 'Tambaksari');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3305160004', '3305160', 'Kalipurwo'),
 ('3305160005', '3305160', 'Purwodadi'),
 ('3305160006', '3305160', 'Pondokgebangsari'),
@@ -41353,9 +41573,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3309060006', '3309060', 'Madu'),
 ('3309060007', '3309060', 'Kemiri'),
 ('3309060008', '3309060', 'Butuh'),
-('3309060009', '3309060', 'Mojosongo');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3309060010', '3309060', 'Kragilan'),
+('3309060009', '3309060', 'Mojosongo'),
+('3309060010', '3309060', 'Kragilan');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3309060011', '3309060', 'Brajan'),
 ('3309060012', '3309060', 'Metuk'),
 ('3309060013', '3309060', 'Dlingo'),
@@ -42714,9 +42934,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3314120016', '3314120', 'Pengkol'),
 ('3314130001', '3314130', 'Kaloran'),
 ('3314130002', '3314130', 'Ngembat Padas'),
-('3314130003', '3314130', 'Kragilan');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3314130004', '3314130', 'Brangkal'),
+('3314130003', '3314130', 'Kragilan'),
+('3314130004', '3314130', 'Brangkal');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3314130005', '3314130', 'Jatibatur'),
 ('3314130006', '3314130', 'Peleman'),
 ('3314130007', '3314130', 'Geneng Duwur'),
@@ -44053,9 +44273,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3318210001', '3318210', 'Wedusan'),
 ('3318210002', '3318210', 'Grogolan'),
 ('3318210003', '3318210', 'Dumpil'),
-('3318210004', '3318210', 'Bakalan');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3318210005', '3318210', 'Ngagel'),
+('3318210004', '3318210', 'Bakalan'),
+('3318210005', '3318210', 'Ngagel');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3318210006', '3318210', 'Kenanti'),
 ('3318210007', '3318210', 'Alasdowo'),
 ('3318210008', '3318210', 'Banyutowo'),
@@ -45390,9 +45610,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3324140007', '3324140', 'Truko'),
 ('3324140008', '3324140', 'Lebosari'),
 ('3324140009', '3324140', 'Kangkung'),
-('3324140010', '3324140', 'Laban');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3324140011', '3324140', 'Karangmalang Wetan'),
+('3324140010', '3324140', 'Laban'),
+('3324140011', '3324140', 'Karangmalang Wetan');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3324140012', '3324140', 'Jungsemi'),
 ('3324140013', '3324140', 'Tanjungmojo'),
 ('3324140014', '3324140', 'Rejosari'),
@@ -46709,9 +46929,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3329130012', '3329130', 'Karangsari'),
 ('3329130013', '3329130', 'Kluwut'),
 ('3329130014', '3329130', 'Bulakparen'),
-('3329130015', '3329130', 'Cimohong');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3329130016', '3329130', 'Grinting'),
+('3329130015', '3329130', 'Cimohong'),
+('3329130016', '3329130', 'Grinting');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3329130017', '3329130', 'Bulakamba'),
 ('3329130018', '3329130', 'Pakijangan'),
 ('3329130019', '3329130', 'Pulogading'),
@@ -48034,9 +48254,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3502190010', '3502190', 'Jenangan'),
 ('3502190011', '3502190', 'Sraten'),
 ('3502190012', '3502190', 'Kemiri'),
-('3502190013', '3502190', 'Semanding');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3502190014', '3502190', 'Tanjung Sari'),
+('3502190013', '3502190', 'Semanding'),
+('3502190014', '3502190', 'Tanjung Sari');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3502190015', '3502190', 'Nglayang'),
 ('3502190016', '3502190', 'Paringan'),
 ('3502190017', '3502190', 'Wates'),
@@ -49378,9 +49598,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3507260010', '3507260', 'Kemantren'),
 ('3507260011', '3507260', 'Argosari'),
 ('3507260012', '3507260', 'Slamparejo'),
-('3507260013', '3507260', 'Kemiri');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3507260014', '3507260', 'Jabung'),
+('3507260013', '3507260', 'Kemiri'),
+('3507260014', '3507260', 'Jabung');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3507260015', '3507260', 'Gunung Jati'),
 ('3507270001', '3507270', 'Sidoluhur'),
 ('3507270002', '3507270', 'Srigading'),
@@ -50694,9 +50914,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3513150018', '3513150', 'Kalibuntu'),
 ('3513160001', '3513160', 'Opo - Opo'),
 ('3513160002', '3513160', 'Rawan'),
-('3513160003', '3513160', 'Seboro');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('3513160004', '3513160', 'Karangren'),
+('3513160003', '3513160', 'Seboro'),
+('3513160004', '3513160', 'Karangren');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3513160005', '3513160', 'Kedungcaluk'),
 ('3513160006', '3513160', 'Sokaan'),
 ('3513160007', '3513160', 'Dawuhan'),
@@ -52009,7 +52229,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3517120004', '3517120', 'Mancar'),
 ('3517120005', '3517120', 'Kebontemu'),
 ('3517120006', '3517120', 'Dukuh Klopo');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3517120007', '3517120', 'Tanjung Gunung'),
 ('3517120008', '3517120', 'Morosunggingan'),
 ('3517120009', '3517120', 'Tugusumberjo'),
@@ -53353,7 +53573,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3522150012', '3522150', 'Tikusan'),
 ('3522150013', '3522150', 'Sukowati'),
 ('3522150014', '3522150', 'Klampok');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3522150015', '3522150', 'Mojodeso'),
 ('3522150016', '3522150', 'Plesungan'),
 ('3522150017', '3522150', 'Kedaton'),
@@ -54680,7 +54900,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3526010003', '3526010', 'Banyu Ajuh'),
 ('3526010004', '3526010', 'Kamal'),
 ('3526010005', '3526010', 'Tanjung Jati');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3526010006', '3526010', 'Kebun'),
 ('3526010007', '3526010', 'Gili Timur'),
 ('3526010008', '3526010', 'Gili Anyar'),
@@ -55987,7 +56207,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3578170002', '3578170', 'Putat Jaya'),
 ('3578170003', '3578170', 'Banyu Urip'),
 ('3578170004', '3578170', 'Kupang Krajan');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3578170005', '3578170', 'Petemon'),
 ('3578170006', '3578170', 'Sawahan'),
 ('3578180001', '3578180', 'Keputran'),
@@ -57294,7 +57514,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3604240001', '3604240', 'Citerep'),
 ('3604240002', '3604240', 'Ranjeng'),
 ('3604240003', '3604240', 'Ciruas');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('3604240004', '3604240', 'Kadikaran'),
 ('3604240005', '3604240', 'Singamerta'),
 ('3604240006', '3604240', 'Pulo'),
@@ -58614,7 +58834,7 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5203010006', '5203010', 'Pijot'),
 ('5203010007', '5203010', 'Selebung Ketangga'),
 ('5203010008', '5203010', 'Sepit');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5203010009', '5203010', 'Keruak'),
 ('5203010010', '5203010', 'Batu Putik'),
 ('5203010011', '5203010', 'Senyiur'),
@@ -59947,9 +60167,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5304021010', '5304021', 'Balu'),
 ('5304022001', '5304022', 'Besana'),
 ('5304022002', '5304022', 'Fatukoko'),
-('5304022003', '5304022', 'Koa');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('5304022004', '5304022', 'Salbait'),
+('5304022003', '5304022', 'Koa'),
+('5304022004', '5304022', 'Salbait');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5304022005', '5304022', 'Oeuban'),
 ('5304023001', '5304023', 'Binaus'),
 ('5304023002', '5304023', 'Oelbubuk'),
@@ -61302,9 +61522,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5311011009', '5311011', 'Renga Menge'),
 ('5311012001', '5311012', 'Kebirangga Selatan'),
 ('5311012002', '5311012', 'Kamubheka'),
-('5311012003', '5311012', 'Kebirangga');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('5311012004', '5311012', 'Boafeo'),
+('5311012003', '5311012', 'Kebirangga'),
+('5311012004', '5311012', 'Boafeo');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5311012005', '5311012', 'Magekapa'),
 ('5311012006', '5311012', 'Nabe'),
 ('5311012007', '5311012', 'Kobaleba'),
@@ -62625,9 +62845,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5320030011', '5320030', 'Ledetalo'),
 ('5320030012', '5320030', 'Deme'),
 ('5320040001', '5320040', 'Teriwu'),
-('5320040002', '5320040', 'Raenalulu');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('5320040003', '5320040', 'Depe'),
+('5320040002', '5320040', 'Raenalulu'),
+('5320040003', '5320040', 'Depe');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('5320040004', '5320040', 'Titinalede'),
 ('5320040005', '5320040', 'Raemude'),
 ('5320040006', '5320040', 'Raenyale'),
@@ -63909,9 +64129,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6107190014', '6107190', 'Beluh Mulyo'),
 ('6107190015', '6107190', 'Batu Ampar'),
 ('6107190016', '6107190', 'Bukit Sidin Permai'),
-('6107190017', '6107190', 'Betung Permai');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('6107200001', '6107200', 'Bagelang Jaya'),
+('6107190017', '6107190', 'Betung Permai'),
+('6107200001', '6107200', 'Bagelang Jaya');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6107200002', '6107200', 'Sumber Sari'),
 ('6107200003', '6107200', 'Panggi Agung'),
 ('6107200004', '6107200', 'Kerta Sari'),
@@ -65161,9 +65381,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6203170009', '6203170', 'Bajuh'),
 ('6203170011', '6203170', 'Karukus'),
 ('6203170018', '6203170', 'Barunang'),
-('6203170019', '6203170', 'Buhut Jaya');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('6203170020', '6203170', 'Hurung Pukung'),
+('6203170019', '6203170', 'Buhut Jaya'),
+('6203170020', '6203170', 'Hurung Pukung');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6203171001', '6203171', 'Dandang'),
 ('6203171002', '6203171', 'Balai Banjang'),
 ('6203171003', '6203171', 'Jangkang'),
@@ -66422,9 +66642,9 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6302030012', '6302030', 'Alle Alle'),
 ('6302030013', '6302030', 'Tanjung Seloka'),
 ('6302030014', '6302030', 'Tanjung Serudung'),
-('6302030015', '6302030', 'Labuan Mas');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
-('6302030016', '6302030', 'Tanjung Seloka Utara'),
+('6302030015', '6302030', 'Labuan Mas'),
+('6302030016', '6302030', 'Tanjung Seloka Utara');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6302031001', '6302031', 'Pulau Kerayaan'),
 ('6302031002', '6302031', 'Kerayaan Utara'),
 ('6302031003', '6302031', 'Pulau Kerumputan'),
@@ -67663,10 +67883,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6308050001', '6308050', 'Danau Caramin'),
 ('6308050002', '6308050', 'Pinang Kara'),
 ('6308050003', '6308050', 'Pinang Habang'),
-('6308050004', '6308050', 'Tapus');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('6308050004', '6308050', 'Tapus'),
 ('6308050005', '6308050', 'Mawar Sari'),
-('6308050006', '6308050', 'Datu Kuning'),
+('6308050006', '6308050', 'Datu Kuning');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6308050007', '6308050', 'Muara Tapus'),
 ('6308050008', '6308050', 'Rantawan'),
 ('6308050009', '6308050', 'Kandang Halang'),
@@ -68939,10 +69159,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6404031002', '6404031', 'Mugi Rahayu'),
 ('6404031003', '6404031', 'Mawai Indah'),
 ('6404031004', '6404031', 'Himba Lestari'),
-('6404031005', '6404031', 'Batu Timbau');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('6404031005', '6404031', 'Batu Timbau'),
 ('6404031006', '6404031', 'Telaga'),
-('6404040012', '6404040', 'Sangatta Utara'),
+('6404040012', '6404040', 'Sangatta Utara');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('6404040016', '6404040', 'Teluk Lingga'),
 ('6404040017', '6404040', 'Singa Gembara'),
 ('6404040018', '6404040', 'Swarga Bara'),
@@ -70227,11 +70447,11 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7103050014', '7103050', 'Lelipang'),
 ('7103050015', '7103050', 'Menggawa Ii'),
 ('7103050016', '7103050', 'Kalama Darat'),
-('7103050017', '7103050', 'Mahumu I');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7103050017', '7103050', 'Mahumu I'),
 ('7103050018', '7103050', 'Mahumu Ii'),
 ('7103050019', '7103050', 'Kalinda I'),
-('7103050020', '7103050', 'Hesang'),
+('7103050020', '7103050', 'Hesang');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7103060006', '7103060', 'Mandoi'),
 ('7103060008', '7103060', 'Malamenggu'),
 ('7103060009', '7103060', 'Birahi'),
@@ -71534,11 +71754,11 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7201020012', '7201020', 'Kokini'),
 ('7201020013', '7201020', 'Lambako'),
 ('7201020015', '7201020', 'Potil Pololoba'),
-('7201020016', '7201020', 'Dangkalan');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7201020016', '7201020', 'Dangkalan'),
 ('7201020017', '7201020', 'Pasir Putih'),
 ('7201021001', '7201021', 'Kendek'),
-('7201021002', '7201021', 'Bone Baru'),
+('7201021002', '7201021', 'Bone Baru');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7201021003', '7201021', 'Tolise Tubono'),
 ('7201021004', '7201021', 'Paisumosoni'),
 ('7201021005', '7201021', 'Popisi'),
@@ -72883,11 +73103,11 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7208021004', '7208021', 'Masari'),
 ('7208021005', '7208021', 'Dolago'),
 ('7208021006', '7208021', 'Lemusa'),
-('7208021007', '7208021', 'Boyantongo');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7208021007', '7208021', 'Boyantongo'),
 ('7208021008', '7208021', 'Olobaru'),
 ('7208021009', '7208021', 'Gangga'),
-('7208022001', '7208022', 'Kayuboko'),
+('7208022001', '7208022', 'Kayuboko');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7208022002', '7208022', 'Parigimpuu'),
 ('7208022003', '7208022', 'Baliara'),
 ('7208022004', '7208022', 'Air Panas'),
@@ -74196,11 +74416,11 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7308022004', '7308022', 'Bori Bellaya'),
 ('7308022005', '7308022', 'R A Y A'),
 ('7308022006', '7308022', 'Turikale'),
-('7308022007', '7308022', 'Alliritengae');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7308022007', '7308022', 'Alliritengae'),
 ('7308023001', '7308023', 'Allepolea'),
 ('7308023002', '7308023', 'Soreang'),
-('7308023003', '7308023', 'Marrannu'),
+('7308023003', '7308023', 'Marrannu');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7308023004', '7308023', 'Bonto Marannu'),
 ('7308023005', '7308023', 'Maccini Baji'),
 ('7308023006', '7308023', 'Mattiro Deceng'),
@@ -75528,11 +75748,11 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7317061011', '7317061', 'Tumale'),
 ('7317061013', '7317061', 'Muladimeng'),
 ('7317061014', '7317061', 'Buntu Kamiri'),
-('7317061015', '7317061', 'Buntu Nanna');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7317061015', '7317061', 'Buntu Nanna'),
 ('7317061016', '7317061', 'Tirowali'),
 ('7317061017', '7317061', 'Mario'),
-('7317061018', '7317061', 'Tampa'),
+('7317061018', '7317061', 'Tampa');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7317061019', '7317061', 'Parekaju'),
 ('7317062001', '7317062', 'Paccerakang'),
 ('7317062002', '7317062', 'Pattedong'),
@@ -76765,10 +76985,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7402041009', '7402041', 'Pajala'),
 ('7402041010', '7402041', 'Maginti'),
 ('7402041011', '7402041', 'Kangkunawe'),
-('7402041012', '7402041', 'Pasipadangan');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7402041012', '7402041', 'Pasipadangan'),
 ('7402041013', '7402041', 'Kembar Maminasa'),
-('7402042001', '7402042', 'Wanseriwu'),
+('7402042001', '7402042', 'Wanseriwu');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7402042002', '7402042', 'Langku-langku'),
 ('7402042003', '7402042', 'Mekar Jaya'),
 ('7402042004', '7402042', 'Wapae'),
@@ -78097,10 +78317,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7406061001', '7406061', 'Toari Buton'),
 ('7406061002', '7406061', 'Timbala'),
 ('7406061003', '7406061', 'Ranokomea'),
-('7406061004', '7406061', 'Rakadua');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7406061004', '7406061', 'Rakadua'),
 ('7406061005', '7406061', 'Lameo-meong'),
-('7406061006', '7406061', 'Babamolingku'),
+('7406061006', '7406061', 'Babamolingku');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7406061007', '7406061', 'Balasari'),
 ('7406061008', '7406061', 'Pabiring'),
 ('7406061009', '7406061', 'Bulu Manai'),
@@ -79428,10 +79648,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7601030004', '7601030', 'Sendana'),
 ('7601030005', '7601030', 'Tallum Banua'),
 ('7601030011', '7601030', 'Pundau'),
-('7601030012', '7601030', 'Bukit Samang');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('7601030012', '7601030', 'Bukit Samang'),
 ('7601030013', '7601030', 'Limbua'),
-('7601030014', '7601030', 'Lalatedong'),
+('7601030014', '7601030', 'Lalatedong');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('7601030015', '7601030', 'Paminggalan'),
 ('7601030016', '7601030', 'Totolisi Sendana'),
 ('7601030017', '7601030', 'Banua Sendana'),
@@ -80778,10 +80998,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('8107022005', '8107022', 'Afang Kota'),
 ('8107022006', '8107022', 'Afang Defol'),
 ('8107022007', '8107022', 'Kumelang'),
-('8107022008', '8107022', 'Undur');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('8107022008', '8107022', 'Undur'),
 ('8107022009', '8107022', 'Kamar'),
-('8107022010', '8107022', 'Gunak'),
+('8107022010', '8107022', 'Gunak');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('8107022011', '8107022', 'Sumbawa'),
 ('8107022012', '8107022', 'Mising'),
 ('8107030007', '8107030', 'Bemo'),
@@ -82145,10 +82365,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('8272050011', '8272050', 'Ampera'),
 ('8272050012', '8272050', 'Bukit Durian'),
 ('8272050013', '8272050', 'Galala'),
-('8272050014', '8272050', 'Balbar');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('8272050014', '8272050', 'Balbar'),
 ('8272051001', '8272051', 'Togeme'),
-('8272051002', '8272051', 'Lola'),
+('8272051002', '8272051', 'Lola');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('8272051003', '8272051', 'Akelamo'),
 ('8272051004', '8272051', 'Akeguraci'),
 ('8272051005', '8272051', 'Akesai'),
@@ -83512,10 +83732,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('9110073005', '9110073', 'Tut'),
 ('9110073006', '9110073', 'Semu'),
 ('9110074001', '9110074', 'Chaliat'),
-('9110074002', '9110074', 'Soroan');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('9110074002', '9110074', 'Soroan'),
 ('9110074003', '9110074', 'Fanse'),
-('9110074004', '9110074', 'Sehu'),
+('9110074004', '9110074', 'Sehu');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('9110074005', '9110074', 'Sfacko'),
 ('9110080002', '9110080', 'Hohoyar'),
 ('9110080003', '9110080', 'Setta'),
@@ -84887,10 +85107,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('9415010007', '9415010', 'Kaipom'),
 ('9415010008', '9415010', 'Hahare'),
 ('9415010009', '9415010', 'Aikut'),
-('9415010010', '9415010', 'Senepit');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('9415010010', '9415010', 'Senepit'),
 ('9415010011', '9415010', 'Sanem'),
-('9415010012', '9415010', 'Saman'),
+('9415010012', '9415010', 'Saman');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('9415010013', '9415010', 'Aworket'),
 ('9415010014', '9415010', 'Pirimapun'),
 ('9415010015', '9415010', 'Kairin'),
@@ -86291,10 +86511,10 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('9418080016', '9418080', 'Gubura'),
 ('9418080017', '9418080', 'Tunggunale'),
 ('9418090001', '9418090', 'Kurupu'),
-('9418090002', '9418090', 'Geka');
-REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
+('9418090002', '9418090', 'Geka'),
 ('9418090003', '9418090', 'Kembu'),
-('9418090004', '9418090', 'Nugini'),
+('9418090004', '9418090', 'Nugini');
+INSERT INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 ('9418090005', '9418090', 'Dundu'),
 ('9418090006', '9418090', 'Yiku'),
 ('9418090007', '9418090', 'Nilogabu'),
@@ -87224,20 +87444,41 @@ REPLACE INTO `kelurahan` (`id_kel`, `id_kec`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `migration`
+--
+
+CREATE TABLE IF NOT EXISTS `migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `migration`
+--
+
+INSERT INTO `migration` (`version`, `apply_time`) VALUES
+('m000000_000000_base', 1450933891),
+('m130524_201442_init', 1450933894),
+('m140506_102106_rbac_init', 1450954906),
+('m151225_185413_create_company_table', 1451069900),
+('m151225_185414_create_company_table', 1451071925);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `provinsi`
 --
 
 CREATE TABLE IF NOT EXISTS `provinsi` (
   `id_prov` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id_prov`)
+  `nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `provinsi`
 --
 
-REPLACE INTO `provinsi` (`id_prov`, `nama`) VALUES
+INSERT INTO `provinsi` (`id_prov`, `nama`) VALUES
 ('11', 'Aceh'),
 ('12', 'Sumatera Utara'),
 ('13', 'Sumatera Barat'),
@@ -87272,6 +87513,148 @@ REPLACE INTO `provinsi` (`id_prov`, `nama`) VALUES
 ('82', 'Maluku Utara'),
 ('91', 'Papua Barat'),
 ('94', 'Papua');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '10',
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
+(8, 'admin', 'VCA1oXj5tzvwZSBH_ev4J0JGXvL8YNaA', '$2y$13$.P3.62qwsR8b0i7z0qfSYeaa8.N/9Xt6BU2OcJAD5LxN2ZSsYDSQK', NULL, 'admin@gmail.com', 10, 1451182609, 1451183615),
+(9, 'admin2', 'UPWeprcD4TGg1W7chXEmplQ8UWJvd6tC', '$2y$13$yt.aHS.XIhNuOJdV0i2FCuYlFB0vy211LaGi0f.ebB1k1lrnulLzi', NULL, 'admin2@gmail.com', 10, 1451182649, 1451182649),
+(10, 'operator', '8XdjPHdJ2t6JThireEpanodHC1gtOBtI', '$2y$13$8o8B/e2EPDD7VHQ8rpAn6eUpQgfEYbSyR2V0f92NpjqXcnxmqORze', NULL, 'operator@mail.com', 10, 1451184362, 1451230917),
+(11, 'operator2', 'fsNmraAlKMhXS32k2qqXT8uk1Chu6MhT', '$2y$13$oI/zupmsgMFeNua.k4S6aORWDbwfUtsYg2y6wyqULuy5lm28Ju1Jq', NULL, 'operator2@mail.com', 10, 1451230946, 1451230946);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `auth_assignment`
+--
+ALTER TABLE `auth_assignment`
+  ADD PRIMARY KEY (`item_name`,`user_id`);
+
+--
+-- Indexes for table `auth_item`
+--
+ALTER TABLE `auth_item`
+  ADD PRIMARY KEY (`name`),
+  ADD KEY `rule_name` (`rule_name`),
+  ADD KEY `idx-auth_item-type` (`type`);
+
+--
+-- Indexes for table `auth_item_child`
+--
+ALTER TABLE `auth_item_child`
+  ADD PRIMARY KEY (`parent`,`child`),
+  ADD KEY `child` (`child`);
+
+--
+-- Indexes for table `auth_rule`
+--
+ALTER TABLE `auth_rule`
+  ADD PRIMARY KEY (`name`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `kabupaten`
+--
+ALTER TABLE `kabupaten`
+  ADD PRIMARY KEY (`id_kab`);
+
+--
+-- Indexes for table `kecamatan`
+--
+ALTER TABLE `kecamatan`
+  ADD PRIMARY KEY (`id_kec`);
+
+--
+-- Indexes for table `kelurahan`
+--
+ALTER TABLE `kelurahan`
+  ADD PRIMARY KEY (`id_kel`);
+
+--
+-- Indexes for table `migration`
+--
+ALTER TABLE `migration`
+  ADD PRIMARY KEY (`version`);
+
+--
+-- Indexes for table `provinsi`
+--
+ALTER TABLE `provinsi`
+  ADD PRIMARY KEY (`id_prov`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `password_reset_token` (`password_reset_token`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `auth_assignment`
+--
+ALTER TABLE `auth_assignment`
+  ADD CONSTRAINT `auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `auth_item`
+--
+ALTER TABLE `auth_item`
+  ADD CONSTRAINT `auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `auth_item_child`
+--
+ALTER TABLE `auth_item_child`
+  ADD CONSTRAINT `auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
